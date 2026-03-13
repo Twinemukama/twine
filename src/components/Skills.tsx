@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 
 const skills = {
   Languages: ["JavaScript", "Python", "Go"],
@@ -12,23 +13,17 @@ const skills = {
 const Skills = () => (
   <section className="py-20 px-6" id="skills">
     <div className="max-w-4xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="font-mono text-primary text-sm mb-8 tracking-wider"
-      >
-        // SKILLS
-      </motion.h2>
+      <SectionHeader text="SKILLS" />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {Object.entries(skills).map(([category, items], i) => (
           <motion.div
             key={category}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-card p-5 rounded-xl border border-border"
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            whileHover={{ y: -4 }}
+            className="bg-card p-5 rounded-xl border border-border hover:border-primary/30 transition-colors"
           >
             <h3 className="text-primary font-mono text-xs mb-3 uppercase tracking-wider">{category}</h3>
             <div className="flex flex-wrap gap-2">
