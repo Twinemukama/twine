@@ -32,7 +32,20 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
 
 const Hero = () => (
   <section className="min-h-[80vh] flex items-center py-20 px-6">
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto flex flex-col md:flex-row-reverse md:items-center gap-10">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="flex-shrink-0"
+      >
+        <img
+          src={profileImg}
+          alt="Twinemukama Innocent"
+          className="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover border-2 border-primary/30 shadow-lg shadow-primary/10"
+        />
+      </motion.div>
+      <div>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
