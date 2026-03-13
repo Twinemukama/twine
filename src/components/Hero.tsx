@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import profileImg from "@/assets/profile.jpg";
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -31,7 +32,20 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
 
 const Hero = () => (
   <section className="min-h-[80vh] flex items-center py-20 px-6">
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto flex flex-col md:flex-row-reverse md:items-center gap-10">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="flex-shrink-0"
+      >
+        <img
+          src={profileImg}
+          alt="Twinemukama Innocent"
+          className="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover border-2 border-primary/30 shadow-lg shadow-primary/10"
+        />
+      </motion.div>
+      <div>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +54,7 @@ const Hero = () => (
       >
         Hello, I'm
       </motion.p>
-      <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+      <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight font-display">
         <AnimatedText text="Twinemukama " />
         <AnimatedText text="Innocent" className="text-primary" />
       </h1>
@@ -106,6 +120,7 @@ const Hero = () => (
           <Linkedin size={20} />
         </a>
       </motion.div>
+      </div>
     </div>
   </section>
 );
