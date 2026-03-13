@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 
 const experiences = [
   {
@@ -42,27 +43,26 @@ const experiences = [
 const Experience = () => (
   <section className="py-20 px-6" id="experience">
     <div className="max-w-4xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="font-mono text-primary text-sm mb-12 tracking-wider"
-      >
-        // EXPERIENCE
-      </motion.h2>
+      <SectionHeader text="EXPERIENCE" />
       <div className="space-y-12">
         {experiences.map((exp, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors"
+            transition={{ delay: i * 0.15, duration: 0.5 }}
+            className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors group"
           >
-            <div className="absolute left-[-7px] top-1 w-3 h-3 rounded-full bg-primary" />
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 + 0.2, type: "spring", stiffness: 300 }}
+              className="absolute left-[-7px] top-1 w-3 h-3 rounded-full bg-primary"
+            />
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-              <h3 className="text-xl font-semibold">{exp.title}</h3>
+              <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{exp.title}</h3>
               <span className="font-mono text-primary text-xs">{exp.period}</span>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
@@ -70,10 +70,17 @@ const Experience = () => (
             </p>
             <ul className="space-y-2">
               {exp.bullets.map((b, j) => (
-                <li key={j} className="text-secondary-foreground text-sm leading-relaxed flex gap-2">
+                <motion.li
+                  key={j}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 + j * 0.05 + 0.3 }}
+                  className="text-secondary-foreground text-sm leading-relaxed flex gap-2"
+                >
                   <span className="text-primary mt-1.5 shrink-0">▸</span>
                   {b}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

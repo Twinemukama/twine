@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
@@ -20,6 +21,12 @@ const Index = () => {
                 {s}
               </a>
             ))}
+            <Link
+              to="/story"
+              className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              Story
+            </Link>
           </div>
         </div>
       </nav>

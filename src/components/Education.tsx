@@ -1,23 +1,19 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Award } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const Education = () => (
   <section className="py-20 px-6" id="education">
     <div className="max-w-4xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="font-mono text-primary text-sm mb-12 tracking-wider"
-      >
-        // EDUCATION & CERTIFICATES
-      </motion.h2>
+      <SectionHeader text="EDUCATION & CERTIFICATES" />
       <div className="grid md:grid-cols-2 gap-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-card p-6 rounded-xl border border-border"
+          transition={{ duration: 0.5 }}
+          whileHover={{ y: -4 }}
+          className="bg-card p-6 rounded-xl border border-border hover:border-primary/30 transition-colors"
         >
           <GraduationCap className="text-primary mb-4" size={28} />
           <h3 className="text-lg font-semibold mb-1">BSc. Information Systems and Technology</h3>
@@ -25,11 +21,12 @@ const Education = () => (
           <p className="font-mono text-primary text-xs mt-2">2021 — 2023</p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="bg-card p-6 rounded-xl border border-border"
+          transition={{ delay: 0.1, duration: 0.5 }}
+          whileHover={{ y: -4 }}
+          className="bg-card p-6 rounded-xl border border-border hover:border-primary/30 transition-colors"
         >
           <Award className="text-primary mb-4" size={28} />
           <h3 className="text-lg font-semibold mb-3">Certificates</h3>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const projects = [
   {
@@ -22,23 +23,17 @@ const projects = [
 const Projects = () => (
   <section className="py-20 px-6" id="projects">
     <div className="max-w-4xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="font-mono text-primary text-sm mb-12 tracking-wider"
-      >
-        // PROJECTS
-      </motion.h2>
+      <SectionHeader text="PROJECTS" />
       <div className="grid md:grid-cols-3 gap-6">
         {projects.map((project, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, rotateX: 10 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="group bg-card p-6 rounded-xl border border-border hover:border-primary/50 transition-all hover:-translate-y-1"
+            transition={{ delay: i * 0.12, duration: 0.5 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="group bg-card p-6 rounded-xl border border-border hover:border-primary/50 transition-all"
           >
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
