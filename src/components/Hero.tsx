@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import profileImg from "@/assets/profile.jpg";
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
