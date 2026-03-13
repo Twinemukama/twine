@@ -120,6 +120,7 @@ const Hero = () => (
           <Linkedin size={20} />
         </a>
       </motion.div>
+      </div>
     </div>
   </section>
 );
