@@ -54,7 +54,7 @@ const Hero = () => (
       >
         Hello, I'm
       </motion.p>
-      <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+      <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight font-display">
         <AnimatedText text="Twinemukama " />
         <AnimatedText text="Innocent" className="text-primary" />
       </h1>
