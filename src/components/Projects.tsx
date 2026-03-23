@@ -7,14 +7,14 @@ const projects = [
 		name: "Lucy's Beauty Parlour",
 		description:
 			"A modern web application for a beauty parlour business, featuring service listings, booking management, and a polished client-facing interface.",
-		tags: ["React", "Go", "PostgreSQL", "Render", "Cranecloud", "Web App"],
+		tags: ["Typescript","React", "Go", "PostgreSQL", "Render", "Cranecloud", "Web App"],
 		url: "https://www.lucysbeautyparlour.com/",
 	},
 	{
 		name: "Inventory Manager",
 		description:
 			"A full-stack inventory management system for tracking products, stock levels, and supply chain operations with real-time updates.",
-		tags: ["Vue", "Go", "PostgreSQL", "Render", "Heroku", "Full Stack", "CRUD"],
+		tags: ["Javascript", "Vue", "Go", "PostgreSQL", "Render", "Heroku"],
 		url: "https://inventory-manager-frontend-u13j.onrender.com",
 	},
 ];
