@@ -111,11 +111,11 @@ const Hero = () => (
         transition={{ delay: 1.5 }}
         className="flex gap-4 mt-6"
       >
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/Twinemukama" target="_blank" rel="noopener noreferrer"
           className="p-3 rounded-lg bg-secondary text-secondary-foreground hover:text-primary hover:bg-muted transition-colors">
           <Github size={20} />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/in/twinemukama-innocent-b39137216/" target="_blank" rel="noopener noreferrer"
           className="p-3 rounded-lg bg-secondary text-secondary-foreground hover:text-primary hover:bg-muted transition-colors">
           <Linkedin size={20} />
         </a>

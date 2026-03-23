@@ -32,7 +32,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="font-mono text-primary text-sm font-bold">TI.</span>
+          <span className="font-mono text-primary text-sm font-bold"></span>
           <div className="flex gap-6">
             {sections.map((s) => (
               <a
@@ -62,9 +62,11 @@ const Index = () => {
       <Projects />
       <Education />
       <footer className="py-12 px-6 border-t border-border">
-        <p className="text-center text-muted-foreground text-sm font-mono">
-          © 2025 Twinemukama Innocent. Built with passion.
-        </p>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-center text-muted-foreground text-sm font-mono">
+            &copy; {new Date().getFullYear()} Twinemukama Innocent. Built with passion.
+          </p>
+        </div>
       </footer>
     </div>
   );
