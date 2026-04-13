@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Twinemukama.github.io",
+  "homepage": "https://Twinemukama.github.io/twine",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/', // <--- change to '/REPO_NAME/' (e.g. '/twine/')
+  base: '/twine/',
   build: {
     outDir: 'dist'
   },
