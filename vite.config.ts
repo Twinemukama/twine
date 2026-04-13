@@ -4,7 +4,10 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/',
+  base: '/', // <--- change to '/REPO_NAME/' (e.g. '/twine/')
+  build: {
+    outDir: 'dist'
+  },
   server: {
     host: "::",
     port: 8080,
