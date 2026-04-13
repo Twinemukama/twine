@@ -204,7 +204,7 @@ const Story = () => (
 
 		<footer className="py-12 px-6 border-t border-border">
 			<p className="text-center text-muted-foreground text-sm font-mono">
-				© 2025 Twinemukama Innocent. Built with passion.
+				&copy; {new Date().getFullYear()} Twinemukama Innocent.
 			</p>
 		</footer>
 	</div>

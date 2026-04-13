@@ -64,7 +64,7 @@ const Index = () => {
       <footer className="py-12 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-muted-foreground text-sm font-mono">
-            &copy; {new Date().getFullYear()} Twinemukama Innocent. Built with passion.
+            &copy; {new Date().getFullYear()} Twinemukama Innocent.
           </p>
         </div>
       </footer>
