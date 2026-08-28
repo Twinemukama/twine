@@ -20,7 +20,7 @@ const experiences = [
     title: "Software Developer",
     company: "Cranecloud",
     location: "Kampala, Uganda",
-    period: "06/2024 - Present",
+    period: "06/2024 - 05/2026",
     url: "https://cranecloud.io/",
     bullets: [
       "Utilized TanStack Query for efficient API data fetching and caching, participated in major UI refactors.",
