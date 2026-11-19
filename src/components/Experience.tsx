@@ -1,9 +1,33 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import { ExternalLink } from "lucide-react";
 
-const experiences = [
-	{
+type ExperienceEntry = {
+  number: string;
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  url?: string;
+  bullets: string[];
+};
+
+const experiences: ExperienceEntry[] = [
+  {
+    number: "01",
+    title: "Software Engineer",
+    company: "Stede Technologies",
+    location: "Kampala, Uganda",
+    period: "09/2026 - Present",
+    url: "https://learnlito.com/",
+    bullets: [
+      "Engineered end-to-end user onboarding and authentication flows, integrating frontend interfaces with backend APIs to provide a seamless and secure account experience.",
+      "Built and optimized responsive marketing website experiences using modern frontend practices, reusable components, and responsive design principles to strengthen the company’s digital presence.",
+      "Contributed to the frontend architecture and product development workflow, collaborating with the engineering and product teams to translate requirements into maintainable, production-ready features.",
+    ],
+  },
+  {
+    number: "02",
     title: "R&D Full Stack Developer",
     company: "Auri Energy",
     location: "Kampala, Uganda",
@@ -14,9 +38,10 @@ const experiences = [
       "Implemented Power Quality and Metering Data modules with Angular/React dashboards for real-time grid insights.",
       "Customized FUXA for SCADA-style visualizations, enhancing operational visibility for grid operators.",
       "Built and maintained Azure DevOps CI/CD pipelines, improving deployment speed and reliability.",
-		],
-	},
-	{
+    ],
+  },
+  {
+    number: "03",
     title: "Software Developer",
     company: "Cranecloud",
     location: "Kampala, Uganda",
@@ -27,9 +52,10 @@ const experiences = [
       "Reduced API response time by 30% through rigorous code reviews, testing, and bug fixes.",
       "Developed scalable RESTful APIs using Flask and FastAPI.",
       "Led deployment of production-ready applications with robust CI/CD pipelines.",
-		],
-	},
-	{
+    ],
+  },
+  {
+    number: "04",
     title: "Software Engineer",
     company: "Crownzcom Technologies",
     location: "Kampala, Uganda",
@@ -40,72 +66,81 @@ const experiences = [
       "Improved students' understanding and retention with educational animations aligned to national curriculum.",
       "Translated complex scientific concepts into visually intuitive learning modules.",
       "Contributed to a digital learning platform increasing access to quality STEM education.",
-		],
-	},
+    ],
+  },
 ];
 
-const Experience = () => (
-	<section className="py-20 px-6" id="experience">
-		<div className="max-w-4xl mx-auto">
-			<SectionHeader text="EXPERIENCE" />
-			<div className="space-y-12">
-        {experiences.map((exp, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
-            className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors group"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 + 0.2, type: "spring", stiffness: 300 }}
-              className="absolute left-[-7px] top-1 w-3 h-3 rounded-full bg-primary"
-            />
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-              <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{exp.title}</h3>
-              <span className="font-mono text-primary text-xs">{exp.period}</span>
-						</div>
-            <p className="text-muted-foreground text-sm mb-4">
-              {exp.company} · {exp.location}
-            </p>
-            <ul className="space-y-2">
-              {exp.bullets.map((b, j) => (
-                <motion.li
-                  key={j}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 + j * 0.05 + 0.3 }}
-                  className="text-secondary-foreground text-sm leading-relaxed flex gap-2"
-                >
-                  <span className="text-primary mt-1.5 shrink-0">▸</span>
-                  {b}
-                </motion.li>
-							))}
-						</ul>
+const Experience = () => {
+  const reduceMotion = useReducedMotion();
 
-            {exp.url && (
-              <p className="mt-3">
-                <a
-                  href={exp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
-                >
-                  <ExternalLink size={14} />
-                  Visit {exp.company}
-                </a>
-              </p>
-            )}
-          </motion.div>
-				))}
-			</div>
-		</div>
-	</section>
-);
+  return (
+    <section className="portfolio-section experience-section" id="experience" aria-labelledby="experience-title">
+      <div className="section-container">
+        <div className="section-heading-row experience-heading-row">
+          <div>
+            <SectionHeader text="WHERE I'VE MADE AN IMPACT" />
+            <h2 id="experience-title" className="section-display-title">
+              The work <span>so far.</span>
+            </h2>
+          </div>
+          <p className="section-heading-note">
+            A selection of roles, teams and problems that have shaped the way I approach software engineering.
+          </p>
+        </div>
+
+        <div className="experience-list">
+          {experiences.map((experience, index) => (
+            <motion.article
+              className="experience-item"
+              key={`${experience.company}-${experience.number}`}
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 34 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : index * 0.08 }}
+            >
+              <div className="experience-index-column">
+                <span className="experience-index">/{experience.number}</span>
+                <span className="experience-rail" aria-hidden="true" />
+              </div>
+
+              <div className="experience-content">
+                <div className="experience-topline">
+                  <div>
+                    <p className="experience-company">{experience.company}</p>
+                    <h3>{experience.title}</h3>
+                  </div>
+                  <span className="experience-period">{experience.period}</span>
+                </div>
+
+                <p className="experience-location"><MapPin size={14} /> {experience.location}</p>
+
+                <ul className="experience-achievements">
+                  {experience.bullets.map((bullet, bulletIndex) => (
+                    <motion.li
+                      key={bullet}
+                      initial={{ opacity: 0, x: reduceMotion ? 0 : 12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: reduceMotion ? 0 : 0.35, delay: reduceMotion ? 0 : index * 0.08 + bulletIndex * 0.045 }}
+                    >
+                      <span className="achievement-marker" aria-hidden="true" />
+                      <span>{bullet}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                {experience.url && (
+                  <a className="experience-company-link" href={experience.url} target="_blank" rel="noopener noreferrer">
+                    Visit {experience.company} <ArrowUpRight size={15} />
+                  </a>
+                )}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Experience;
